@@ -1,0 +1,20 @@
+provider:
+  name: openfaas
+
+functions:
+  stress:
+    lang: dockerfile
+    handler: ./stress
+    image: ttl.sh/welteki/stress:latest
+    requests:
+      memory: 20Mi
+    environment:
+      read_timeout: "2m"
+      write_timeout: "2m"
+      exec_timeout: "2m"
+    labels:
+      com.openfaas.scale.min: 1
+      com.openfaas.scale.max: 10
+      com.openfaas.scale.target: 20000000
+      com.openfaas.scale.type: memory
+      com.openfaas.scale.target-proportion: 0.8
