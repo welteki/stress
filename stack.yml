@@ -5,7 +5,7 @@ functions:
   stress:
     lang: dockerfile
     handler: ./stress
-    image: ${SERVER:-ttl.sh}/${OWNER:-welteki}/stress:${TAG:-latest}
+    image: ${SERVER:-ghcr.io}/${OWNER:-welteki}/stress:${TAG:-latest}
     requests:
       memory: 20Mi
     environment:
